@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-const ReviewCard = ({review}) => {
-    const {rname, remail, rtext, rimg, _id} = review;
+const ReviewCard = ({ review }) => {
+    const { rname, remail, rtext, rimg, _id } = review;
 
     return (
         <div className='w-2/4 mx-auto'>
@@ -15,6 +16,8 @@ const ReviewCard = ({review}) => {
                 <p className="mt-2 text-gray-600 dark:text-gray-200">{rtext}</p>
 
             </div>
+
+
         </div>
     );
 };

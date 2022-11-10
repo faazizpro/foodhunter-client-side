@@ -40,7 +40,7 @@ const AllMenu = () => {
                             </svg>
                             <span className="relative">FoodHunter's</span>
                         </span>{' '}
-                        All Dishes
+                        Favorite Dishes
                     </h2>
                 </div>
 

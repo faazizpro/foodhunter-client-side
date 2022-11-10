@@ -4,7 +4,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
 const HomeCardLists = ({ trifood }) => {
-    const { name, info, price, img, category
+    const { _id, name, info, price, img, category
     } = trifood;
 
     return (
@@ -44,7 +44,7 @@ const HomeCardLists = ({ trifood }) => {
                                     Type: {category}
                                 </button>
 
-                                <Link>
+                                <Link to={`/allmenu/${_id}`}>
                                     <button class="w-full px-4 py-1 text-black transition-colors duration-300 transform bg-white rounded-md focus:outline-none sm:w-auto sm:mx-1 hover:bg-blue-500 focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-40 lg:text-xl font-bold">
                                         View Details
                                     </button>

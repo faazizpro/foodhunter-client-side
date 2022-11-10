@@ -11,10 +11,10 @@ const MyReview = () => {
     // console.log(allreview);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allreview')
+        fetch(`http://localhost:5000/reviewsbyemail?remail=${user?.email}`)
             .then(res => res.json())
             .then(data => setAllReviews(data))
-    }, [])
+    }, [user?.email])
     return (
         <div className='w-11/12 mx-auto'>
            

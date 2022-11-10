@@ -9,12 +9,18 @@ const SingleCard = () => {
     const { name, category, instruction, info, time, price, img, _id } = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    const [refresh, setRefresh] = useState(false);
+
+
     // console.log(reviews);
     useEffect(() => {
         fetch(`http://localhost:5000/reviewsbyid?serviceId=${_id}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [_id])
+            .then(data => {
+                setReviews(data)
+                setRefresh(!refresh);
+            })
+    }, [_id, refresh])
 
 
     const handleReview = e => {
@@ -52,7 +58,8 @@ const SingleCard = () => {
             <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 lg:w-full w-4/5 mx-auto md:mx-0">
                 <PhotoProvider>
                     <PhotoView src={img}>
-                        <img alt=''
+                        <img referrerPolicy="no-referrer"
+                            alt=''
                             src={img}
                             className="object-cover w-full h-80" />
                     </PhotoView>
@@ -101,9 +108,9 @@ const SingleCard = () => {
                     <div>
                         <div>
                             {
-                                reviews.map(review =><SingleReview
-                                key={review._id}
-                                review={review}
+                                reviews.map(review => <SingleReview
+                                    key={review._id}
+                                    review={review}
                                 ></SingleReview>)
                             }
                         </div>

@@ -6,7 +6,7 @@ const HomeCard = () => {
     const [foodsList, setFoodsList] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods?_limit=3')
+        fetch('http://localhost:5000/foods?limit=3')
             .then(res => res.json())
             .then(data => setFoodsList(data))
     }, [])
@@ -53,7 +53,7 @@ const HomeCard = () => {
             <div>
                 <div className="grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 sm:grid-cols-2 w-3/4 mx-auto">
                 {
-                    foodsList.slice(0, 3).map(trifood => <HomeCardLists
+                    foodsList.map(trifood => <HomeCardLists
                         key={trifood._id}
                         trifood={trifood}
                     ></HomeCardLists>)

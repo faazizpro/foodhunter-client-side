@@ -4,6 +4,8 @@ import AllMenu from "../Pages/AllMenu/AllMenu";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
+import LogOut from "../Pages/LogOut/LogOut";
+import MyReview from "../Pages/MyReview/MyReview";
 import SingleCard from "../Pages/SingleCard/SingleCard";
 
 const router = createBrowserRouter([
@@ -18,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/myreview',
+                element: <MyReview></MyReview>,
             },
             {
                 path: '/allmenu',

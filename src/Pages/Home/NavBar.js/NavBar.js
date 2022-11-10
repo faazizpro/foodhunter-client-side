@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Asset/logo.png';
 import { FcGoogle } from 'react-icons/fc';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const NavBar = () => {
+    const {user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () =>{
+        logOut()
+         .then(result =>{
+            const user = result.user;
+         })
+         .catch(err => {
+            console.log(err);
+         })
+    }
 
     return (
         <div className="navbar bg-base-100">
@@ -22,6 +34,14 @@ const NavBar = () => {
                         <button className='btn btn-outline lg:text-2xl text-sm'>Blog
                         </button>
                     </Link>
+
+                    {
+                    user?.email ?
+                    <Link to='/myreview'>
+                    <button className='btn btn-outline lg:text-2xl text-sm'>My Review</button>
+                    </Link> :
+                    null
+                }
                     
                     
                     </ul>
@@ -36,11 +56,24 @@ const NavBar = () => {
                 <Link to='/blog'>
                     <button className='btn btn-outline border-2 lg:text-2xl text-sm'>Blog</button>
                 </Link>
-                    
+
+                
+                {
+                    user?.email ?
+                    <Link to='/myreview'>
+                    <button className='btn btn-outline border-2 lg:text-2xl text-sm'>My Review</button>
+                    </Link> :
+                    null
+                }
+                   
                 </ul>
             </div>
             <div className="navbar-end">
                 <Link to='/login' className="btn btn-success text-black lg:font-bold lg:text-2xl">Login With <span className='ml-3'><FcGoogle/></span></Link>
+                { user?.email?
+                <Link to='' onClick={handleLogOut} className="ml-5 btn btn-success text-black lg:font-bold lg:text-2xl">Log Out </Link> :
+                    null
+                }
             </div>
         </div>
     );

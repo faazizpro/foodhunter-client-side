@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const provider = new GoogleAuthProvider();
-    const {googleLogin} = useContext(AuthContext);
+    const {googleLogin,} = useContext(AuthContext);
 
     const handleSubmit = event =>{
         event.preventDefault();

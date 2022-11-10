@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -100,21 +100,38 @@ const SingleCard = () => {
 
             <form onSubmit={handleReview} className='columns-3 w-96 flex flex-col'>
                 <div className=''>
-                    <div className='flex flex-col justify-center'>
-                        <input type="text" name='rtext' placeholder="Type here" className="input input-bordered input-success w-full mx-auto max-w-xs mb-2 mt-2 text-center" />
-                        <button type='submit ' className="btn  w-2/6 mx-auto btn-active btn-primary">Submit</button>
-
-                    </div>
-                    <div>
+                    {user?.email ?
                         <div>
-                            {
-                                reviews.map(review => <SingleReview
-                                    key={review._id}
-                                    review={review}
-                                ></SingleReview>)
-                            }
+                            <div className='flex flex-col justify-center'>
+                                <input type="text" name='rtext' placeholder="Type here" className="input input-bordered input-success w-full mx-auto max-w-xs mb-2 mt-2 text-center" />
+                                <button type='submit ' className="btn  w-2/6 mx-auto btn-active btn-primary">Submit</button>
+
+                            </div>
+                            <div>
+                                <div>
+                                    {
+                                        reviews.map(review => <SingleReview
+                                            key={review._id}
+                                            review={review}
+                                        ></SingleReview>)
+                                    }
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        :
+                        <>
+                            <div className="card w-96 bg-neutral text-neutral-content mt-5">
+
+                                <div className="card-body items-center text-center ">
+                                    <h2 className="card-title">You have to login to give review</h2>
+                                    <div className="card-actions justify-end">
+                                        <Link to='/login'><button className="btn btn-primary ">Login</button></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+
+                    }
                 </div>
             </form>
         </div>

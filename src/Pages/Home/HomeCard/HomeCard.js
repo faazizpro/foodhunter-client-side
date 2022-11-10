@@ -49,7 +49,7 @@ const HomeCard = () => {
                     </p>
                 </div>
 
-            </div>
+                </div>
             <div>
                 <div className="grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 sm:grid-cols-2 w-3/4 mx-auto">
                 {

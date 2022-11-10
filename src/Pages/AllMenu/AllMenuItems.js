@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-const HomeCardLists = ({ trifood }) => {
-    const { name, info, price, img, category
-    } = trifood;
+const AllMenuItems = ({ food }) => {
+    const { name, info, price, img, category } = food;
 
     return (
         <div>
@@ -22,6 +21,7 @@ const HomeCardLists = ({ trifood }) => {
                             />
                         </PhotoView>
                     </PhotoProvider>
+
                     <div className="flex-grow border border-t-0 rounded-b">
                         <div className="p-5">
                             <h6 className="mb-2 font-semibold leading-5">
@@ -54,9 +54,8 @@ const HomeCardLists = ({ trifood }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
 
-export default HomeCardLists;
+export default AllMenuItems;

@@ -11,7 +11,7 @@ const MyReview = () => {
     // console.log(allreview);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsbyemail?remail=${user?.email}`)
+        fetch(`https://y-ashy-seven.vercel.app/reviewsbyemail?remail=${user?.email}`)
             .then(res => res.json())
             .then(data => setAllReviews(data))
     }, [user?.email])

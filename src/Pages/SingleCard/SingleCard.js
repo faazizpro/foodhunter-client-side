@@ -14,7 +14,7 @@ const SingleCard = () => {
 
     // console.log(reviews);
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsbyid?serviceId=${_id}`)
+        fetch(`https://y-ashy-seven.vercel.app/reviewsbyid?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -37,7 +37,7 @@ const SingleCard = () => {
         }
         console.log(reviewData);
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://y-ashy-seven.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

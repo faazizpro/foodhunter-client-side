@@ -5,7 +5,7 @@ const AllMenu = () => {
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods?_limit=3')
+        fetch('https://y-ashy-seven.vercel.app/foods?_limit=3')
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

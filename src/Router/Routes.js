@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/allmenu/:id',
                 element: <SingleCard></SingleCard>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://y-ashy-seven.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/blog',

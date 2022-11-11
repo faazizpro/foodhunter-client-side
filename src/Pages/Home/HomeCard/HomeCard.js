@@ -6,7 +6,7 @@ const HomeCard = () => {
     const [foodsList, setFoodsList] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods?limit=3')
+        fetch('https://y-ashy-seven.vercel.app/foods?limit=3')
             .then(res => res.json())
             .then(data => setFoodsList(data))
     }, [])

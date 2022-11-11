@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import AddFood from "../Pages/AddFood/AddFood";
 import AllMenu from "../Pages/AllMenu/AllMenu";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home/Home";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: '/allmenu',
                 element: <AllMenu></AllMenu>
+            },
+            {
+                path: '/addfood',
+                element: <AddFood></AddFood>
             },
             {
                 path: '/allmenu/:id',

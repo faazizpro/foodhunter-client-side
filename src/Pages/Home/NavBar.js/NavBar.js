@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import logo from '../../../Asset/logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';

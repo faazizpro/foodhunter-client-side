@@ -2,17 +2,23 @@ import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const provider = new GoogleAuthProvider();
     const {googleLogin,} = useContext(AuthContext);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+
     const handleSubmit = event =>{
         event.preventDefault();
         googleLogin(provider)
           .then(result =>{
             const user = result.user;
+            navigate(from, { replace: true })
           })
           .catch(err =>{
             console.log(err);

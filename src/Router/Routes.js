@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import LogOut from "../Pages/LogOut/LogOut";
 import MyReview from "../Pages/MyReview/MyReview";
 import SingleCard from "../Pages/SingleCard/SingleCard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addfood',
-                element: <AddFood></AddFood>
+                element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
             },
             {
                 path: '/allmenu/:id',
